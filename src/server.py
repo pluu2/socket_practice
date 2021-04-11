@@ -20,7 +20,7 @@ class server() :
       while True: 
         c, addr = self.s.accept()     
         print ('Got connection from', addr )
-        c.send("Thank you for conneting")
+        c.send(b'Thank you for conneting')
         c.close()
 
 

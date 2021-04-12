@@ -1,7 +1,7 @@
 import socket
 import picamera
-import picam
-from picam import camera
+import src.picam
+from src.picam import camera
 import numpy as np
 #will listen.
 
@@ -19,18 +19,21 @@ class server() :
     def listen (self): 
       self.s.bind(('',self.port))
       print("socket bound to %s" %(self.port))
-      self.s.listen(5) 
+      self.s.listen(1) 
       print("socket is listening") #continually searches.
       while True: 
         c, addr = self.s.accept()     
         print ('Got connection from', addr )
-        output=self.takePhoto().flatten()
+        #output=self.takePhoto()
 
-        c.send(output)
+       
+        c.sendfile(temp.jpg)
         c.close()
 
     def takePhoto(self): 
-        return self.cam.takePhoto()
+        self.cam.takePhoto()
+        
+        #return buffer
     
 
         

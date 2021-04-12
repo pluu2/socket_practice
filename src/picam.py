@@ -1,7 +1,7 @@
 import time
 import picamera
 import numpy as np
-#import matplotlib
+import pickle
 
 class camera():
     def __init__(self,resolution=300): 
@@ -12,6 +12,8 @@ class camera():
         self.camera.start_preview()
         time.sleep(2) 
         output=np.empty((320,304,3))
-        self.camera.capture(output,'rgb')
-        return output
+        #self.camera.PiArrayOutput(output,'rgb')
+        self.camera.capture('temp.jpg')
+               
+        #return output
 
